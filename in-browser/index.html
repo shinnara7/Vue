@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue js Introduction</title>
+	<script type="text/javascript" src="vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>{{message}}</h1>
+		<button v-on:click="reverse">Reserve Text</button>
+		<br>
+		<input type="text" name="name" placeholder="Enter Your Name" v-model="name">
+		<p v-bind:title="titletxt">{{name}}</p> <!-- long term bind -->
+		<img :src="photo" alt="This is sample image!" width="100"> <!-- short term bind -->
+		
+		<p v-if="mark > 50">Pass!</p>
+		<p v-else>Fail!</p>
+		<ol>
+			<li v-for="todo in filterTodos">{{todo.text}}</li>
+		</ol>
+		
+
+	</div>
+
+<script type="text/javascript">
+	var app=new Vue({ //instance(obj)
+		el:"#app", //DOM Link
+		data:{
+			message:"Hello Vue",
+			name:"Vue in-browser",
+			titletxt: "This is a title!",
+			photo:"photo/secret.jpg",
+			mark:40,
+			todos: [
+			{ text: 'Learn JavaScript',status: false },
+			{ text: 'Learn Vue',status: false },
+			{ text: 'Build something awesome',status: true }
+			]
+		},
+		methods:{
+			reverse(){
+				this.message = this.message.split('').reverse().join('');
+			}
+		},
+		computed:{
+			filterTodos(){
+				 return this.todos.filter(todo => todo.status==false)
+			}
+		}
+	})
+</script>
+</body>
+</html>
