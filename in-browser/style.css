@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&subset=latin,latin-ext);
+
+  html, body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  li.under{ color: blue;float: left;} /* bullet */
+  li.normal{ color: green; float: left;}
+  li.over{ color: orange; float: left;}
+  li.ob{ color: red; float: left;}
+  li span { color: black; } /* text */
+ 
+ 
+
+ #list{
+  font-size: 20px;
+}
